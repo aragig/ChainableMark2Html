@@ -1,0 +1,126 @@
+@charset "UTF-8";
+a {
+  text-decoration: none;
+  color: #0552aa; }
+  a:hover {
+    color: #337ab7;
+    text-decoration: underline; }
+
+body {
+  background-position: center top;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif; }
+
+.cm2h {
+  max-width: 720px; }
+  .cm2h .code-block {
+    margin: 1.6em 0; }
+    .cm2h .code-block .code-label {
+      display: table;
+      background-color: #323e52;
+      padding: 2px 5px;
+      border-right: 1px solid #ccc;
+      color: #ffffffe6;
+      border-radius: 6px 6px 0 0;
+      line-height: 1.3;
+      font-size: 12px; }
+    .cm2h .code-block .code {
+      clear: both;
+      margin: 0;
+      line-height: 1.2em;
+      padding: 0;
+      width: 100%;
+      background: #1a2638;
+      color: #fff;
+      border-radius: 0 6px 6px 6px; }
+      .cm2h .code-block .code code {
+        font-family: Menlo, Consolas, 'DejaVu sans Mono', monospace;
+        font-size: 0.85em;
+        /* font-weight: 600; */
+        display: block;
+        padding: 1rem;
+        /* max-height: 500px; */
+        overflow-wrap: normal;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        line-height: 1.7em; }
+  .cm2h .codeInline {
+    font-family: Menlo, Consolas, 'DejaVu sans Mono', monospace;
+    background: #efefef;
+    padding: 1px 5px;
+    margin: 0px 5px;
+    word-break: keep-all; }
+  .cm2h .tilde {
+    background: #f9f9f9;
+    border: 3px dashed #cacaca;
+    margin: 1.6em 0;
+    padding: 2em;
+    line-height: 1.7em;
+    font-size: 0.9em;
+    clear: both; }
+  .cm2h table {
+    margin: 1.6em 0 0 0;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    max-width: 100%;
+    display: block;
+    overflow-x: scroll;
+    /* white-space: nowrap; */
+    -webkit-overflow-scrolling: touch;
+    /* overflow-x: scroll;
+    white-space:nowrap; */
+    /*iPhoneで文字が大きくなってしまうが、やらないと横幅がかわってレイアウトが崩れ、もっとひどくなる*/ }
+    .cm2h table th, .cm2h table td {
+      padding: 4px 10px;
+      border: 1px solid #bbb;
+      line-height: 1.6em; }
+    .cm2h table th {
+      text-align: center;
+      /* border: 1px solid #333; */
+      background: #eee; }
+  .cm2h blockquote {
+    position: relative;
+    margin: 2em 0;
+    padding: 1em 1em 1em 2.6em;
+    font-size: .9em;
+    border-left: 5px solid #CCC;
+    border-radius: 2px; }
+  .cm2h blockquote:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: '”';
+    font-family: sans-serif;
+    font-size: 6em;
+    opacity: .1; }
+  .cm2h div.flex-box-images {
+    display: flex;
+    flex-wrap: wrap; }
+  .cm2h figure {
+    flex-shrink: 0;
+    border: none;
+    padding: 5px;
+    margin: 1.6em 0 0 0;
+    font-size: 0.8em;
+    color: #666;
+    display: table;
+    width: fit-content;
+    /* figureの幅を内容に合わせる */ }
+    .cm2h figure img {
+      display: block;
+      height: auto;
+      /* 画像のアスペクト比を保持 */
+      width: 100%; }
+    .cm2h figure figcaption {
+      display: table-caption;
+      caption-side: bottom;
+      color: #666;
+      background: #eee;
+      font-size: 0.75rem;
+      margin: 8px 4px;
+      padding: 8px 12px;
+      border-radius: 4px; }
+
+/*# sourceMappingURL=cm2h.css.map */
