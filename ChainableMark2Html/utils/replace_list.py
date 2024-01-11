@@ -17,11 +17,11 @@ def unordered_list(markdown_text):
 
             # If we are in a deeper level, start a new nested list
             if indent > prev_indent:
-                html += "<ul>" * ((indent - prev_indent) // 4) + "\n"
+                html += "<li><ul>" * ((indent - prev_indent) // 4) + "\n"
 
             # If we are in a shallower level, close the previous nested list
             elif indent < prev_indent:
-                html += "</ul>\n" * ((prev_indent - indent) // 4)
+                html += "</ul></li>\n" * ((prev_indent - indent) // 4)
 
             # Add the list item
             html += f"<li>{line.strip()[2:]}</li>\n"
@@ -52,10 +52,12 @@ def ordered_list(markdown_text):
     html = ""
     prev_indent = 0
     inside_list = False
+    #TODO ネストでバグあり
 
     for line in lines:
         # Check if the line is an ordered list item
-        if line.strip().split('. ', 1)[0].isdigit():
+        if line.strip().split('. ', 1)[0].isdigit():  # 文字が数値であるかどうか判定
+
             indent = len(line) - len(line.lstrip(' '))
 
             # Start a new list if not already inside one
@@ -66,11 +68,11 @@ def ordered_list(markdown_text):
 
             # If we are in a deeper level, start a new nested list
             if indent > prev_indent:
-                html += "<ol>" * ((indent - prev_indent) // 4) + "\n"
+                html += "<li><ol>" * ((indent - prev_indent) // 4) + "\n"
 
             # If we are in a shallower level, close the previous nested list
             elif indent < prev_indent:
-                html += "</ol>\n" * ((prev_indent - indent) // 4)
+                html += "</ol></li>\n" * ((prev_indent - indent) // 4)
 
             # Add the list item
             html += f"<li>{line.split('. ', 1)[1]}</li>\n"
