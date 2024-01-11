@@ -27,14 +27,14 @@ class TestMarkdownToHtml(unittest.TestCase):
         expected_html = """ここから
 <ul>
 <li>リスト1</li>
-<ul>
+<li><ul>
 <li>リスト1_1</li>
-<ul>
+<li><ul>
 <li>リスト1_1_1</li>
 <li>リスト1_1_2</li>
-</ul>
+</ul></li>
 <li>リスト1_2</li>
-</ul>
+</ul></li>
 <li>リスト2</li>
 <li>リスト3</li>
 </ul>
@@ -72,14 +72,14 @@ class TestMarkdownToHtml(unittest.TestCase):
         expected_html = """ここから
 <ol>
 <li>項目1</li>
-<ol>
+<li><ol>
 <li>項目1_1</li>
-<ol>
+<li><ol>
 <li>項目1_1_1</li>
 <li>項目1_1_2</li>
-</ol>
+</ol></li>
 <li>項目1_2</li>
-</ol>
+</ol></li>
 <li>項目2</li>
 <li>項目3</li>
 </ol>
@@ -111,10 +111,10 @@ class TestMarkdownToHtml(unittest.TestCase):
 番号は自動的に採番されるため、すべての行を1.と記述するのがお勧めです。
 <ol>
 <li>番号付きリスト1</li>
-<ol>
+<li><ol>
 <li>番号付きリスト1-1</li>
 <li>番号付きリスト1-2</li>
-</ol>
+</ol></li>
 <li>番号付きリスト2</li>
 <li>番号付きリスト3</li>
 </ol>"""
