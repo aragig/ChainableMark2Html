@@ -179,6 +179,7 @@ JavaScriptタグの中は**強調**や_イタリック_など色々書いても�
             }
 
             (mark2html
+             .toc()
              .import_code()  # !最初に実行
              .code()  # !最初に実行
              .inline_code()

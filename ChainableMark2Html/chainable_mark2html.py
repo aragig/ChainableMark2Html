@@ -10,6 +10,7 @@ from .utils import replace_table
 from .utils import replace_image
 from .utils import replace_list
 from .utils import replace_headings
+from .utils import replace_toc
 
 
 class ChainableMark2Html:
@@ -57,12 +58,16 @@ class ChainableMark2Html:
         self.__html = self.store_manager.store(self.__html, r'(<script[^>]*>.*?</script>)')
         return self
 
+    def toc(self):
+        self.__html = replace_toc.replace_toc(self.__html, level=3)
+        return self
+
     def heading(self):
         # ! 最初の処理はh1タグ用
-
+        headingManager = replace_headings.HeadingManager()
         self.__html = self.store_manager.store_line(self.__html,
                                                     r'^(#{1,6}\s+.*)',
-                                                    replace_headings.headings_callback,
+                                                    headingManager.headings_callback,
                                                     '\n\n')
         return self
 
