@@ -11,6 +11,7 @@ setup(
     license='MIT',
     url='https://github.com/aragig/ChainableMark2Html',
     install_requires=[
+        'PyYAML==6.0.*',
     ],
     classifiers=[
         'Programming Language :: Python :: 3',

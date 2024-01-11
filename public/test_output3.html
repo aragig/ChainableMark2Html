@@ -9,27 +9,44 @@
 <body>
 <article class="cm2h">
 <!-- HTMLへ変換されたMarkdwon文章が入ります: ここから -->
-<h1>ChainableMark2Html</h1>
+<h1><span id="ChainableMark2Html" class="fragment"></span>ChainableMark2Html</h1>
 <p>MarkdownをHTMLに変換するPythonパッケージです。 以下はChainableMark2HtmlでコンパイルできるMarkdownの基本的な要素とその使用方法の概要です。</p>
-<h2>見出し (Headers)</h2>
+<p><div class="toc">
+<ol><li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97%20%28Headers%29">見出し (Headers)</a></li>
+<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%972">見出し2</a></li>
+<ol><li><a href="#%E8%A6%8B%E5%87%BA%E3%81%973">見出し3</a></li>
+</ol><li><a href="#%E6%AE%B5%E8%90%BD%20%28Block%29">段落 (Block)</a></li>
+<li><a href="#%E6%94%B9%E8%A1%8C%20%28Br%29">改行 (Br)</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%20%28Blockquotes%29">引用 (Blockquotes)</a></li>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%20%28Code%29">コード (Code)</a></li>
+<li><a href="#%E3%83%81%E3%83%AB%E3%83%80">チルダ</a></li>
+<li><a href="#%E6%B0%B4%E5%B9%B3%E7%B7%9A%20%28Hr%29">水平線 (Hr)</a></li>
+<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88%20%28Lists%29">リスト (Lists)</a></li>
+<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF%20%28Link%29">リンク (Link)</a></li>
+<li><a href="#%E5%BC%B7%E8%AA%BF%20%28Emphasis%29">強調 (Emphasis)</a></li>
+<li><a href="#%E7%94%BB%E5%83%8F%20%28Images%29">画像 (Images)</a></li>
+<li><a href="#%E8%A1%A8%20%28Table%29">表 (Table)</a></li>
+</ol></li>
+</div></p>
+<h2><span id="%E8%A6%8B%E5%87%BA%E3%81%97%20%28Headers%29" class="fragment"></span>見出し (Headers)</h2>
 <p>見出しはドキュメントの構造を整理するのに役立ちます。<span class="codeInline">#</span>を使用して異なるレベルの見出しを作成できます。たとえば、<span class="codeInline">#</span>は最も大きな見出し（見出し1）を、<span class="codeInline">##</span>は少し小さな見出し（見出し2）を作成します。</p>
-<h1>見出し1</h1>
-<h2>見出し2</h2>
-<h3>見出し3</h3>
-<h4>見出し4</h4>
-<h5>見出し5</h5>
-<h6>見出し6</h6>
-<h2>段落 (Block)</h2>
+<h1><span id="%E8%A6%8B%E5%87%BA%E3%81%971" class="fragment"></span>見出し1</h1>
+<h2><span id="%E8%A6%8B%E5%87%BA%E3%81%972" class="fragment"></span>見出し2</h2>
+<h3><span id="%E8%A6%8B%E5%87%BA%E3%81%973" class="fragment"></span>見出し3</h3>
+<h4><span id="%E8%A6%8B%E5%87%BA%E3%81%974" class="fragment"></span>見出し4</h4>
+<h5><span id="%E8%A6%8B%E5%87%BA%E3%81%975" class="fragment"></span>見出し5</h5>
+<h6><span id="%E8%A6%8B%E5%87%BA%E3%81%976" class="fragment"></span>見出し6</h6>
+<h2><span id="%E6%AE%B5%E8%90%BD%20%28Block%29" class="fragment"></span>段落 (Block)</h2>
 <p>Markdownでは、新しい段落を作成するために空白行を使用します。これは文章の読みやすさを向上させます。</p>
 <p>段落はpタグで囲まれます。</p>
-<h2>改行 (Br)</h2>
+<h2><span id="%E6%94%B9%E8%A1%8C%20%28Br%29" class="fragment"></span>改行 (Br)</h2>
 <p>改行は、行末にスペースを2つ入れることで作成できます。これは、段落内で改行を入れる際に特に便利です。</p>
 <div class="code-block"><span class="code-label">markdown</span><pre class="code"><code class="markdown">コメント
 ここは改行されない(スペース2つ)
 ここは改行される</code></pre></div><p>コメント
 ここは改行されない<br>
 ここは改行される</p>
-<h2>引用 (Blockquotes)</h2>
+<h2><span id="%E5%BC%95%E7%94%A8%20%28Blockquotes%29" class="fragment"></span>引用 (Blockquotes)</h2>
 <p>引用は、<span class="codeInline">&gt;</span>を行の先頭に置くことで作成できます。</p>
 <p><blockquote>
 引用<br>
@@ -38,7 +55,7 @@
 >> ただし多重引用には対応してません
 引用
 </blockquote></p>
-<h2>コード (Code)</h2>
+<h2><span id="%E3%82%B3%E3%83%BC%E3%83%89%20%28Code%29" class="fragment"></span>コード (Code)</h2>
 <p>Markdownでは、コードを<span class="codeInline">バッククオート</span>3つで囲むことにより表示できます。インラインコードは、単語を<span class="codeInline">バッククオート</span>で囲むことで作成できます。</p>
 <div class="code-block"><span class="code-label">python</span><pre class="code"><code class="python">    def output(self, output_file_path, overwrite=False):
         if overwrite or not os.path.exists(output_file_path):
@@ -57,7 +74,7 @@
         return self
 </code></pre></div><div class="code-block"><span class="code-label"></span><pre class="code"><code class="plaintext">ラベルなしのプレーンテキストです。</code></pre></div><p>整形済みテキスト (pre)
 半角スペース4つまたはタブを使用すると、整形済みテキストを作成できます。これは特にコードブロックに適しています。</p>
-<h2>チルダ</h2>
+<h2><span id="%E3%83%81%E3%83%AB%E3%83%80" class="fragment"></span>チルダ</h2>
 <div class="code-block"><span class="code-label">markdown</span><pre class="code"><code class="markdown">チルダを使います
 ~~~
 チルダの中身はこんな感じ。
@@ -69,40 +86,30 @@
 改行も入れたりなんかりして。<br>
 <strong>強調表現</strong>もできます！</div>
 チルダの外</p>
-<h2>水平線 (Hr)</h2>
+<h2><span id="%E6%B0%B4%E5%B9%B3%E7%B7%9A%20%28Hr%29" class="fragment"></span>水平線 (Hr)</h2>
 <p>ハイフン<span class="codeInline">---</span>の3つを使用して水平線を作成できます。
 <hr>
-<h2>リスト (Lists)</h2>
+<h2><span id="%E3%83%AA%E3%82%B9%E3%83%88%20%28Lists%29" class="fragment"></span>リスト (Lists)</h2>
 </p>
 <p>Markdownでは、箇条書きリストと番号付きリストを作成することができます。箇条書きリストは<span class="codeInline">-</span>で作成できます。</p>
-<p><ul>
-<li>リスト1</li>
-<ul>
-<li>リスト1_1</li>
-<ul>
-<li>リスト1_1_1</li>
+<p><ul><li>リスト1</li>
+<ul><li>リスト1_1</li>
+<ul><li>リスト1_1_1</li>
 <li>リスト1_1_2</li>
-</ul>
-<li>リスト1_2</li>
-</ul>
-<li>リスト2</li>
-<li>リスト3</li>
-</ul></p>
+</ul><li>リスト1_2</li>
+</ul><li>リスト2</li>
+<li>リスト3</li></p>
 <p>また番号.を文の先頭に配置することで、番号付きリストを作成できます。リスト内での階層化はタブを使って表現します。番号付きリストでは、番号は自動で割り振られます。そのため、効率のためにすべての項目を1.で始めることが推奨されます。これにより、項目の追加や削除が簡単になり、リストの順序を手動で管理する必要がなくなります。</p>
 <div class="code-block"><span class="code-label">markdown</span><pre class="code"><code class="markdown">1. 番号付きリスト1
     1. 番号付きリスト1-1
     1. 番号付きリスト1-2
 1. 番号付きリスト2
-1. 番号付きリスト3</code></pre></div><p><ol>
-<li>番号付きリスト1</li>
-<li><ol>
-<li>番号付きリスト1-1</li>
+1. 番号付きリスト3</code></pre></div><p><li>番号付きリスト1</li>
+<ol><li>番号付きリスト1-1</li>
 <li>番号付きリスト1-2</li>
-</ol></li>
-<li>番号付きリスト2</li>
-<li>番号付きリスト3</li>
-</ol></p>
-<h2>リンク (Link)</h2>
+</ol><li>番号付きリスト2</li>
+<li>番号付きリスト3</li></p>
+<h2><span id="%E3%83%AA%E3%83%B3%E3%82%AF%20%28Link%29" class="fragment"></span>リンク (Link)</h2>
 <p>リンクは、次の形式で作成できます。これにより、テキストにリンクを埋め込むことができます。</p>
 <div class="code-block"><span class="code-label">markdown</span><pre class="code"><code class="markdown">[表示文字](URL)
 
@@ -110,12 +117,12 @@ https://github.com/aragig/ChainableMark2Html</code></pre></div><p><a href="https
 <p>テキスト内にも<a href="https://github.com/aragig/ChainableMark2Html">ChainableMark2Html</a>入れられます。</p>
 <p>urlを直接貼ることもできます。<br>
 <a href="https://github.com/aragig/ChainableMark2Html">https://github.com/aragig/ChainableMark2Html</a></p>
-<h2>強調 (Emphasis)</h2>
+<h2><span id="%E5%BC%B7%E8%AA%BF%20%28Emphasis%29" class="fragment"></span>強調 (Emphasis)</h2>
 <p>イタリック体は<span class="codeInline">*</span>で、ボールド体は<span class="codeInline">**</span>で作成できます。イタリックとボールドの両方を組み合わせることも可能です。</p>
 <p>これは<em>イタリック</em>です</p>
 <p>これは<strong>ボールド</strong>です</p>
 <p>これは<em><strong>イタリック＆ボールド</strong></em>です</p>
-<h2>画像 (Images)</h2>
+<h2><span id="%E7%94%BB%E5%83%8F%20%28Images%29" class="fragment"></span>画像 (Images)</h2>
 <p>画像は、次の形式で挿入できます。</p>
 <div class="code-block"><span class="code-label">markdown</span><pre class="code"><code class="markdown">![altテキスト](画像URL)</code></pre></div><p><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ChainableMark2Htmlロゴ" title="ChainableMark2Htmlロゴ" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg"></a></picture><figcaption>ChainableMark2Htmlロゴ</figcaption></figure></p>
 <p>独自のプロセッサーを用意することで、次のような拡張も可能です。詳細は<span class="codeInline">ImageProcessor</span>を参照してください。</p>
@@ -123,7 +130,7 @@ https://github.com/aragig/ChainableMark2Html</code></pre></div><p><a href="https
 <p>画像を横に並べるとFlexboxでレイアウトされます。</p>
 <p><div class='flex-box-images'><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure></div>
 <div class='flex-box-images'><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure><figure><picture><source media="(max-width: 560px)" srcset="chainable_mark2html_logo.jpg"><a href="./images/chainable_mark2html_logo.jpg" class="img-zoom"><img src="./images_medium/chainable_mark2html_logo.jpg" alt="ここに解説コメントを複数行にまたがって入れることができる" title="ここに解説コメントを複数行にまたがって入れることができる" loading="lazy" data-original="./images/chainable_mark2html_logo.jpg" style="max-width:200px;max-height:200px"></a></picture><figcaption>ここに解説コメントを複数行にまたがって入れることができる</figcaption></figure></div></p>
-<h2>表 (Table)</h2>
+<h2><span id="%E8%A1%A8%20%28Table%29" class="fragment"></span>表 (Table)</h2>
 <span class="codeInline">-</span>と<span class="codeInline">|</span>を使用して表を作成できます。これにより、データを整理して表示することができます。<p>これらの要素を使って、Markdownで効果的に情報を整理し、文書を魅力的にすることができます。</p>
 
 <table class="defaultTable"><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>アイテム1</td><td>1000</td></tr><tr><td><strong>アイテム2</strong></td><td>2000</td></tr></tbody></table>
