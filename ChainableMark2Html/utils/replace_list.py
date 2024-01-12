@@ -1,94 +1,80 @@
-def unordered_list(markdown_text):
+import re
+
+
+def replace_list(markdown_text):
+    # Function to convert a single list (not nested) to HTML
+    def convert_list_to_html(list_items, list_type):
+        html_list = f'<{list_type}>\n'
+        for item in list_items:
+            html_list += f'  <li>{item}</li>\n'
+        html_list += f'</{list_type}>\n'
+        return html_list
+
+    # Function to handle nested lists
+    def handle_nested_list(lines):
+        html_output = ''
+        current_list = []
+        list_type = None
+
+        for line in lines:
+            # Check for unordered list
+            if line.startswith('- '):
+                if list_type == 'ol':
+                    html_output += convert_list_to_html(current_list, list_type)
+                    current_list = []
+                list_type = 'ul'
+                current_list.append(line.strip()[2:])
+
+            # Check for ordered list
+            elif re.match(r'\d+\. ', line):
+                if list_type == 'ul':
+                    html_output += convert_list_to_html(current_list, list_type)
+                    current_list = []
+                list_type = 'ol'
+                current_list.append(re.sub(r'\d+\.\s', '', line.strip()))
+
+            # Handle nested lists
+            elif line.startswith('    ') or line.startswith('\t'):
+                print('ネスト')
+                nested_lines = handle_nested_list([line[4:]])
+                if current_list:
+                    current_list[-1] += nested_lines
+                else:
+                    html_output += nested_lines
+
+            # Non-list line
+            else:
+                if current_list:
+                    html_output += convert_list_to_html(current_list, list_type)
+                    current_list = []
+                    list_type = None
+                html_output += line + '\n'
+
+        # Convert any remaining list items
+        if current_list:
+            html_output += convert_list_to_html(current_list, list_type)
+
+        return html_output
+
+    # Split the markdown text into lines and process each line
     lines = markdown_text.split('\n')
-    html = ""
-    prev_indent = 0
-    inside_list = False
-
-    for line in lines:
-        # Check if the line is a list item
-        if line.strip().startswith('- '):
-            indent = len(line) - len(line.lstrip(' '))
-
-            # Start a new list if not already inside one
-            if not inside_list:
-                html += "<ul>"
-                inside_list = True
-                prev_indent = 0
-
-            # If we are in a deeper level, start a new nested list
-            if indent > prev_indent:
-                html += "<ul>" * ((indent - prev_indent) // 4) + ""
-
-            # If we are in a shallower level, close the previous nested list
-            elif indent < prev_indent:
-                html += "</ul>" * ((prev_indent - indent) // 4)
-
-            # Add the list item
-            html += f"<li>{line.strip()[2:]}</li>\n"
-            prev_indent = indent
-
-        else:
-            # If not a list item and we are inside a list, close the list
-            if inside_list:
-                html += "</ul>\n" * (prev_indent // 4) + "\n"
-                inside_list = False
-                prev_indent = 0
-
-            # Add the non-list line as is
-            html += f"{line}\n"
-
-    # Close any remaining open lists
-    if inside_list:
-        html += "</ul>\n" * (prev_indent // 4) + "\n"
-
-    if html.endswith('\n'):
-        return html[:-1]
-    else:
-        return html
+    return handle_nested_list(lines)
 
 
-def ordered_list(markdown_text):
-    lines = markdown_text.split('\n')
-    html = ""
-    prev_indent = 0
-    inside_list = False
-    #TODO ネストでバグあり
+if __name__ == '__main__':
+    markdown_example = """
+- Item 1
+- Item 2
+    - Subitem 2.1
+    - Subitem 2.2
+        1. Sub-subitem 2.2.1
+        2. Sub-subitem 2.2.2
+1. Item 3
+2. Item 4
+    1. Subitem 4.1
+    2. Subitem 4.2
+"""
 
-    for line in lines:
-        if line.strip().split('. ', 1)[0].isdigit():  # 文字が数値であるかどうか判定
-
-            indent = len(line) - len(line.lstrip(' '))
-
-            if not inside_list:  # リストのスタート
-                # html += "<ol>\n"
-                inside_list = True
-                prev_indent = 0
-
-            if indent > prev_indent:  # インデントが深くなった場合
-                html += "<ol>" * ((indent - prev_indent) // 4) + ""
-
-            elif indent < prev_indent: # インデントが浅くなった場合
-                html += "</ol>" * ((prev_indent - indent) // 4)
-
-            # Add the list item
-            html += f"<li>{line.split('. ', 1)[1]}</li>\n"
-            prev_indent = indent
-
-        else:
-            if inside_list:  # 最後にリストを閉じる
-                #print(prev_indent // 4)
-                html += "</ol></li>\n" * (prev_indent // 4) + ""
-                inside_list = False
-                prev_indent = 0
-
-            # Add the non-list line as is
-            html += f"{line}\n"
-
-    if inside_list:
-        # 基本的にここを通ることはないが、安全のため
-        html += "</ol></li>\n" * (prev_indent // 4) + "\n"
-
-    if html.endswith('\n'):
-        return html[:-1]
-    else:
-        return html
+    # Convert and display the HTML
+    html_output = replace_list(markdown_example)
+    print(html_output)

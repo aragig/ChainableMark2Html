@@ -8,7 +8,7 @@ def replace_toc(processing_text, level=2):
     for level, heading in toc:
         # toc_text += f'{"  " * (level - 1)}- [{heading}](#{heading.lower().replace(" ", "-")})\n'
         encoded_heading_text = urllib.parse.quote(heading)
-        toc_text += f'{"    " * (level - 1)}1. <a href="#{encoded_heading_text}">{heading}</a>\n'
+        toc_text += f'{"    " * (level - 2)}1. <a href="#{encoded_heading_text}">{heading}</a>\n'
         # print(f'{"  " * (level - 1)}- {heading}')
     if toc_text != '':
         toc_text = '<div class="toc">\n' + toc_text + '</div>\n'
