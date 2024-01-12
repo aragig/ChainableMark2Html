@@ -127,12 +127,8 @@ class ChainableMark2Html:
         self.__html = replace_image.image(self.__html, callback)
         return self
 
-    def li(self):
-        self.__html = replace_list.unordered_list(self.__html)
-        return self
-
-    def ol(self):
-        self.__html = replace_list.ordered_list(self.__html)
+    def list(self):
+        self.__html = replace_list.replace_list(self.__html)
         return self
 
     def wrap(self, wrap_html, **kwargs):

@@ -187,8 +187,7 @@ JavaScriptタグの中は**強調**や_イタリック_など色々書いても�
              .script()  # !最初に実行
              .heading()
              .tilde()  # !strikeより前に実行
-             .li()
-             .ol()
+             .list()
              .horizon()  # !strongより前に実行
              .strong()  # !emより前に実行
              .em()
