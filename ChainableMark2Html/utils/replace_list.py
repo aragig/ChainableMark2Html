@@ -35,7 +35,6 @@ def replace_list(markdown_text):
 
             # Handle nested lists
             elif line.startswith('    ') or line.startswith('\t'):
-                print('ネスト')
                 nested_lines = handle_nested_list([line[4:]])
                 if current_list:
                     current_list[-1] += nested_lines
