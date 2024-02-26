@@ -14,6 +14,9 @@ from .utils import replace_toc
 
 
 class ChainableMark2Html:
+    """
+    MarkdownをHTMLに変換する
+    """
     def __init__(self, markdown):
         self.__html = markdown
         self.store_manager = StoreManager()
@@ -22,22 +25,35 @@ class ChainableMark2Html:
         """
         独自プロセッサーで任意の処理を行う
         例えばヘッダーのyamlを取得するなど
+
+        :param processor: 独自プロセッサー
         """
         self.__html = processor.process(self.__html)
         return self
 
     def to_html(self):
+        """
+        HTMLを返す
+        """
         self.__html = self.store_manager.restore(self.__html)
         self.__html = replace_paragraph.consolidate_newlines(self.__html)  # TODO コードブロック内の改行にも影響するはず
         return self.__html.strip()
 
     def import_code(self, src_dir=None):
+        """
+        外部ファイルのソースコードコードをインポートする
+
+        :param src_dir: importするファイルのディレクトリ
+        """
         if src_dir is None:
             src_dir = os.path.dirname(os.path.abspath(__file__))
         self.__html = replace_code.replace_import_code(self.__html, src_dir)
         return self.code()
 
     def code(self):
+        """
+        コードブロックをHTMLのコードに変換する
+        """
         self.__html = self.store_manager.store(self.__html,
                                                r'(```[^\n]*\n.*?```)',
                                                replace_code.code_restore_callback)
