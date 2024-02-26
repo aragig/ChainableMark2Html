@@ -36,6 +36,7 @@ class ChainableMark2Html:
         HTMLを返す
         """
         self.__html = self.store_manager.restore(self.__html)
+        self.__html = self.store_manager.restore(self.__html)  # 2回実行することで、テーブル内のコードブロックを復元させている
         self.__html = replace_paragraph.consolidate_newlines(self.__html)  # TODO コードブロック内の改行にも影響するはず
         return self.__html.strip()
 
